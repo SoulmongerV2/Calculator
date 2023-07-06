@@ -36,9 +36,85 @@ buttons.forEach(button => {
                 button.addEventListener('click', printDot)
                 break;
             default:
-                button.addEventListener('click', () => printNumber(button.id));
+                button.addEventListener('click', () => printNumber(button.textContent));
         }
 });
+
+document.body.addEventListener('keydown', (e) => {
+    switch(e.key){
+        case "Delete":
+            clearAll();
+            animateButton("#ac");
+            break;
+        case "Backspace":
+            deleteLastInput();
+            animateButton("#backspace");
+            break;
+        case "/":
+            setOperator("/");
+            animateButton("#divide");
+            break;
+        case "*":
+            setOperator("×");
+            animateButton("#multiply");
+            break;
+        case "-":
+            setOperator("-");
+            animateButton("#substract");
+            break;
+        case "+":
+            setOperator("+");
+            animateButton("#add");
+            break;
+        case "Enter":
+            printResult();
+            animateButton("#equals");
+            break;
+        case ".":
+            printDot();
+            animateButton("#dot");
+            break;
+        case "1":
+            printNumber(1);
+            animateButton("#n1");
+            break;
+        case "2":
+            printNumber(2);
+            animateButton("#n2");
+            break;
+        case "3":
+            printNumber(3);
+            animateButton("#n3");
+            break;
+        case "4":
+            printNumber(4);
+            animateButton("#n4");
+            break;
+        case "5":
+            printNumber(5);
+            animateButton("#n5");
+            break;
+        case "6":
+            printNumber(6);
+            animateButton("#n6");
+            break;
+        case "7":
+            printNumber(7);
+            animateButton("#n7");
+            break;
+        case "8":
+            printNumber(8);
+            animateButton("#n8");
+            break;
+        case "9":
+            printNumber(9);
+            animateButton("#n9");
+            break;
+        case "0":
+            printNumber(0);
+            animateButton("#n0");
+    }
+})
 
 function changeSign(){
     if(bottomLine.textContent > 0){
@@ -156,4 +232,12 @@ function updateTopLine(str){
     }
     topLine.textContent = Number.parseFloat(str).toExponential(6) + (operator === null ? "" :  operator);
     
+}
+
+function animateButton(id){
+    const btn = document.querySelector(id);
+    btn.addEventListener('transitionend', (e) => {
+        e.target.classList.remove('button-animation');
+    });
+    btn.classList.add('button-animation');   
 }
