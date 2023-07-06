@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Segmented";
+    src: url(DSEG7Classic-Regular.ttf);
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow-y: hidden;
+}
+.calculator{
+    background-color: black;
+    padding: 35px;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.calc-display{
+    border: solid rgb(93, 119, 89) 4px;
+    /*border-radius: 5px;*/
+
+}
+
+.top-line, .bottom-line{
+    font-family: "Segmented", sans-serif;
+    /*font-weight: bold;*/
+    height: 50px;
+    font-size: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: rgb(107, 138, 102);
+}
+.calc-buttons{
+    margin-top: 30px;
+}
+.calc-buttons-row{
+    display: flex;
+}
+
+.calc-button{
+    flex: 1;
+    aspect-ratio: 1;
+
+    border-radius: 10px;
+    border-width: 5px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.calc-button:active{
+    background-color: rgb(230, 230, 230);
+}
+
+.double-button{
+    min-width: 50%;
+    aspect-ratio: 2;
+}
+
+.operator-button{
+    background-color: rgb(116, 116, 116);
+    color: white;
+}
+
+.operator-button:active{
+    background-color: rgb(90, 90, 90);
+    color: rgb(230, 230, 230);
+}
+
+#equals{
+    background-color: red;
+}
+
+#equals:active{
+    background-color: rgb(230, 0, 0);
+}
